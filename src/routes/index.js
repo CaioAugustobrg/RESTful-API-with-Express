@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-let chillies = [];
-var count = 0;
+
 router.get('/chillies', (req, res) => {
 	console.log('get all chillies');
 });
