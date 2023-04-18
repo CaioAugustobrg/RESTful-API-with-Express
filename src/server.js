@@ -5,7 +5,6 @@ const port = 3030;
 const cors = require('cors');
 const router = require('./routes/index');
 
-
 app.use(cors());
 app.use(router);
 app.listen(port, () => {
