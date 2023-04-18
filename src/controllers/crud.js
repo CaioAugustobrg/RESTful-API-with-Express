@@ -6,11 +6,9 @@ const addChilli = (req,res) =>  {
 	count = count + 1;
 	chillies.push(newChilli);
 	res.send(newChilli);
-	console.log('add a chilli');
 };
 const replaceChilli = (req,res) => {
 	let chilliIndex = chillies.findIndex((c) => c.id == req.params.id);
-	// if no id was found send chilliMatch will be undefined which is falsy
 	if (chilliIndex != -1) {
 		chillies[chilliIndex] = req.body;
 		console.log(req.body);
@@ -20,6 +18,16 @@ const replaceChilli = (req,res) => {
 	}
 };
 
+const deleteChilli = (req,res) => {
+	let deletedChilli = chillies.find((c) => c.id == req.params.id);
+	if (!deletedChilli) {
+		res.sendStatus(400);
+	} else {
+		chillies = chillies.filter((c) => c.id != req.params.id);
+		res.send(deletedChilli);
+	}
+};
 
 
-module.exports = replaceChilli, addChilli;
+
+module.exports = replaceChilli, addChilli, deleteChilli;
