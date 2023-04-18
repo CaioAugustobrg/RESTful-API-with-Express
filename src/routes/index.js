@@ -1,21 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const {getAll, addChilli, replaceChilli,deleteChilli } = require('../controllers/crud');
 
 
-router.get('/chillies', (req, res) => {
-	console.log('get all chillies');
-});
-router.get('/chillies/:id', (req, res) => {
-	console.log(`get a chilli with id ${req.params.id}`);
-});
-router.post('/chillies', (req, res) => {
-	console.log('add a chilli');
-});
-router.put('/chillies/:id', (req, res) => {
-	console.log(`update a chilli with id ${req.params.id}`);
-});
-router.delete('/chillies/:id', (req, res) => {  
-	console.log(`delete a chilli with id ${req.params.id}`);
-});
+router.get('/chillies', getAll);
+router.get('/chillies/:id');
+router.post('/chillies', addChilli);
+
+router.put('/chillies/:id',replaceChilli);
+router.delete('/chillies/:id',deleteChilli );
 
 module.exports = router;
