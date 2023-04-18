@@ -33,4 +33,4 @@ const getAll = (req,res) => {
 	res.sendStatus('404');
 };
 
-module.exports = replaceChilli, addChilli, deleteChilli, getAll;
+module.exports = {replaceChilli, addChilli, deleteChilli, getAll};
